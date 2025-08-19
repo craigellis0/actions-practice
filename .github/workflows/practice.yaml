@@ -1,5 +1,8 @@
 name: Practice Workflow
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: "0 0 * * *"   # runs daily at midnight UTC
@@ -29,3 +32,6 @@ jobs:
       # Step 4: Push the change back
       - name: Push changes
         run: git push
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
